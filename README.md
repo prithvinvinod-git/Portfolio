@@ -2,7 +2,6 @@
 
 A modern, interactive portfolio website showcasing software engineering projects, technical experience, and embedded systems expertise with ESP32 projects.
 
-## 🌐 Live Demo
 
 Visit the portfolio: [prithvin.dev](https://prithvin.dev)
 
