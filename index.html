@@ -8,14 +8,13 @@
 
     <title>Prithvin Vinod</title>
 
-    <meta
-      name="description"
-      content="Portfolio of Prithvin Vinod CS student, Web Dev & ESP32 enthusiast from Kerala, India."
-    />
+    <meta name="description" content="Prithvin Vinod, Web Dev & ESP32 enthusiast from Kerala, India."/>
+    <meta name="keywords" content="portfolio, AI developer, web developer, python, C/C++, JavaScript, ESP32, React.js, Node.js, Firebase, Electron.js, Spline 3D">
+    <meta name="author" content="Prithvin Vinod">
 
     <meta name="theme-color" content="#0C0C0C" />
 
-    <link rel="icon" href="assets/pfp.ico" />
+    <link rel="icon" href="assets/logo-portfolio.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -47,9 +46,9 @@
     </nav>
 
     <header id="nav">
-      <a href="#hero" class="logo"
-        ><span class="logo-dot"></span>prithvin.dev</a
-      >
+      <a href="#hero" class="logo">
+        <span class="logo-dot"></span>Prithvin Vinod
+      </a>
 
       <ul class="nl">
         <li><a href="#hero" data-n="hero">About</a></li>
@@ -88,11 +87,34 @@
       <div class="hl">
 
         <p class="h-over rv">Software Engineer</p>
-        <h1 class="h-name rv">
-          <span class="ln1">Prithvin</span>
+        <div class="h-name-row">
+          <h1 class="h-name rv">
+            <span class="ln1">Prithvin</span>
 
-          <span class="ln2">Vinod</span>
-        </h1>
+            <span class="ln2">Vinod</span>
+          </h1>
+
+          <!-- pfp shown only on mobile, hidden on desktop via CSS -->
+          <div class="h-pfp-mobile" style="display:none" aria-hidden="true">
+            <div class="h-pfp-mob-wrap">
+              <div class="av-r"></div>
+              <div class="av-r2"></div>
+              <div class="av-hex">
+                <div class="av-in">
+                  <img
+                    src="assets/pfp.jpeg"
+                    alt="Prithvin Vinod"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <span class="av-fb" style="display:none">PV</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <p class="h-tag rv">
           <span id="tw"></span><span class="tc" id="tc"></span>
@@ -106,6 +128,15 @@
 
         <div class="h-cta rv">
           <a href="#proj" class="btn-a">View Projects</a>
+
+          <a href="assets/prithvin-cv.pdf" download="prithvin-cv" class="btn-c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download CV
+          </a>
 
           <a href="mailto:prithvinvinodwork@gmail.com" class="btn-b"
             >Get In Touch</a
@@ -131,7 +162,7 @@
         <div class="av-hex">
           <div class="av-in">
             <img
-              src="../assets/pfp.jpeg"
+              src="assets/pfp.jpeg"
               alt="Prithvin Vinod"
               onerror="
                 this.style.display = 'none';

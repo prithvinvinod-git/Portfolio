@@ -1,0 +1,180 @@
+===========================================================
+  CV GENERATION PROMPT — Prithvin Vinod
+  Fill in every [PLACEHOLDER] before submitting this prompt
+===========================================================
+
+Generate a clean, professional, ATS-friendly CV / résumé in PDF-ready format
+for the following candidate. Use a modern single-column or two-column layout
+with clearly separated sections, consistent typography, and no placeholder
+filler text. Every section below must appear in the output exactly as
+structured. Where a [PLACEHOLDER] appears, leave a clearly marked blank or
+use the bracketed label so the candidate can fill it in later.
+
+─────────────────────────────────────────────────────────────
+SECTION 1 — PERSONAL DETAILS
+─────────────────────────────────────────────────────────────
+Full Name        : Prithvin Vinod
+Job Title/Role   : Software Engineer
+Phone            : [8891235540]
+Email            : prithvinvinodwork@gmail.com
+Location         : Kerala, India  | 670671
+Date of Birth    : [07/12/2007]
+Nationality      : [Indian]
+LinkedIn         : linkedin.com/in/prithvinvinod
+GitHub           : github.com/prithvinvinod-git
+Instagram        : instagram.com/prithvn
+Portfolio URL    : [https://prithvin.vercel.app]
+
+─────────────────────────────────────────────────────────────
+SECTION 2 — PROFESSIONAL SUMMARY  (3–4 sentences)
+─────────────────────────────────────────────────────────────
+CS student and self-driven Software Engineer passionate about Web Development
+and Problem Solving. Skilled in JavaScript, Python, and C/C++, currently
+mastering React.js and deep-diving into ESP32 microcontrollers and embedded
+systems. Builds everything from immersive 3D web experiences and native
+desktop apps to edge-hardware AI assistants, combining full-stack web craft
+with low-level hardware hacking. Competed in and won college-level web
+development competitions, with active open-source contributions on GitHub.
+
+─────────────────────────────────────────────────────────────
+SECTION 3 — EDUCATION
+─────────────────────────────────────────────────────────────
+Degree           : [ B.Tech Computer Science & Engineering]
+Institution      : [Malabar Institute of Technology, Anjarakandy]
+Location         : Kerala, India
+Duration         : [2025] – [2026/ "Present"]
+
+Relevant Courses : Data Structures, Algorithms, Web Technologies,
+                   Computer Networks, [ADD MORE AS NEEDED]
+
+─────────────────────────────────────────────────────────────
+SECTION 4 — TECHNICAL SKILLS
+─────────────────────────────────────────────────────────────
+Languages        : JavaScript, Python, C, C++
+Frontend         : HTML5, CSS3, React.js, GSAP, Spline 3D, Three.js
+Backend / Runtime: Node.js, Express.js [ADD ANY OTHERS]
+Desktop          : Electron.js
+Database / BaaS  : Firebase [ADD ANY OTHERS]
+Embedded / IoT   : ESP32, Arduino (.ino), Bluetooth (BLE), Wi-Fi,
+                   I2S Audio, HTTP Communication
+AI / ML Tools    : Ollama (local LLM), Speech-to-Text (STT),
+                   Text-to-Speech (TTS)
+Dev Tools        : Git, GitHub, VS Code, [ADD ANY OTHERS]
+Other            : REST APIs, Async JS, DOM Manipulation,
+                   Component-driven Architecture
+
+─────────────────────────────────────────────────────────────
+SECTION 5 — EXPERIENCE / JOURNEY  (Timeline / Work History)
+─────────────────────────────────────────────────────────────
+[If you have formal work experience, internships, or freelance work,
+ add them here with: Role | Company | Duration | Key Achievements]
+
+
+
+── Self-Directed Learning & Development Journey (include if no formal exp.) ──
+
+2025 – Present  |  Electron, ESP32 & Immersive 3D Experiences
+Shipping a native Windows desktop app with Electron.js for local LLM
+interaction, writing ESP32 firmware (.ino) for a Bluetooth speaker and an
+AI assistant bridging edge hardware with Ollama. Building immersive landing
+pages with Spline 3D and fluid GSAP animations.
+
+2024 – 2025     |  React, C++ & AI Integration
+Adopted React.js for component-driven, scalable frontends and ventured into
+systems programming with C++. Explored the intersection of AI and the web,
+integrating language models into projects. Began contributing to open-source
+repositories on GitHub.
+
+2023 – 2024     |  JavaScript Mastery & Competition Wins
+Built fully interactive, JavaScript-powered web applications. Explored DOM
+manipulation, async programming, and API integrations. Won college-level
+web development competitions.
+
+2022 – 2023     |  CS Foundations & First Steps into Web
+Began Computer Science journey in Kerala, India. Studied programming
+fundamentals, data structures, and problem solving. Crafted first static
+websites with HTML & CSS.
+
+─────────────────────────────────────────────────────────────
+SECTION 6 — PROJECTS
+─────────────────────────────────────────────────────────────
+
+Project 1: Electron App for Ollama  [Desktop Application]
+Stack    : Electron.js, Node.js, Python, Speech-to-Text, Text-to-Speech
+GitHub   : github.com/prithvinvinod-git/Custom-Windows-App-for-ollama
+Summary  : Custom Windows desktop application for running Ollama LLMs
+           locally, featuring built-in Speech-to-Text and Text-to-Speech
+           capabilities, bringing local AI models to life through a native
+           desktop interface.
+
+Project 2: Red Bull Landing Page  [Web]
+Stack    : HTML, CSS, JavaScript, Spline 3D
+GitHub   : github.com/prithvinvinod-git/Red-Bull-Landing-Page
+Summary  : Visually stunning brand landing page for Red Bull using Spline 3D,
+           delivering an immersive experience that captures the brand's raw
+           energy and dynamism through interactive 3D elements.
+
+Project 3: AI Assistant on ESP32  [Embedded / IoT]
+Stack    : ESP32, Arduino, Ollama, Wi-Fi, HTTP
+GitHub   : github.com/prithvinvinod-git/ESP32-OLLAMA-LOCAL-SERVER
+Summary  : AI assistant deployed on an ESP32 microcontroller that serves a
+           webpage powered by a local Ollama LLM running on a PC — bridging
+           edge hardware with large language models over Wi-Fi.
+
+Project 4: ESP32 Bluetooth Speaker  [Embedded / IoT]
+Stack    : ESP32, Arduino, BLE, Audio, I2S
+GitHub   : github.com/prithvinvinod-git/ESP32-BT-Speaker
+Summary  : Full BLE audio pipeline on an ESP32 — receives audio over
+           Bluetooth, processes it, and drives a speaker via I2S output.
+
+[ADD MORE PROJECTS IF NEEDED]
+Project N: [PROJECT NAME]  [[TYPE]]
+Stack    : [TECHNOLOGIES]
+Link     : [GITHUB / LIVE URL]
+Summary  : [2–3 SENTENCE DESCRIPTION]
+
+─────────────────────────────────────────────────────────────
+SECTION 7 — ACHIEVEMENTS & COMPETITIONS
+─────────────────────────────────────────────────────────────
+• Won college-level web development competition — [COMPETITION NAME],
+  [INSTITUTION], [YEAR]
+• [ADD ANY OTHER AWARDS, HACKATHONS, CERTIFICATIONS]
+• [ADD CERTIFICATIONS: Name | Issuing Body | Month Year]
+
+─────────────────────────────────────────────────────────────
+SECTION 8 — CERTIFICATIONS  (if any)
+─────────────────────────────────────────────────────────────
+• [CERTIFICATION NAME] — [ISSUING PLATFORM / BODY] — [MONTH YEAR]
+• [CERTIFICATION NAME] — [ISSUING PLATFORM / BODY] — [MONTH YEAR]
+
+─────────────────────────────────────────────────────────────
+SECTION 9 — LANGUAGES
+─────────────────────────────────────────────────────────────
+• English  — [Professional Working Proficiency]
+• Malayalam — [Native]
+
+─────────────────────────────────────────────────────────────
+SECTION 10 — INTERESTS / HOBBIES  (optional, keep brief)
+─────────────────────────────────────────────────────────────
+Embedded systems hacking, open-source contribution, 3D web design,
+
+─────────────────────────────────────────────────────────────
+SECTION 11 — REFERENCES
+─────────────────────────────────────────────────────────────
+Available upon request.
+===========================================================
+FORMATTING INSTRUCTIONS FOR THE AI GENERATING THIS CV:
+===========================================================
+• Paper size      : A4
+• Margins         : 15mm all sides
+• Font            : Inter or similar clean sans-serif; headings bold
+• Accent color    : #e8a020 (amber) for section headers / dividers
+• Section headers : Uppercase, bold, with a thin rule below
+• Bullet style    : Clean en-dash (–) or filled circle (•)
+• Length          : Aim for 1 page; 2 pages max if projects require it
+• ATS compliance  : No tables, no text boxes, no headers/footers with
+                    critical info, use standard section names
+• File output     : Provide as PDF-ready HTML or clean LaTeX / DOCX
+• Do NOT include  : photos (unless explicitly requested), icons that
+                    break ATS parsing, colored backgrounds on text
+===========================================================

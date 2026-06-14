@@ -579,6 +579,42 @@ body.ch #cr {
   color: var(--txt);
 }
 
+.btn-c {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 12px 22px;
+  border-radius: 3px;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+
+  color: var(--grn);
+  font-family: var(--fm);
+  font-size: 0.75rem;
+
+  letter-spacing: 0.06em;
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn-c svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.btn-c:hover {
+  border-color: var(--grn);
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
+  color: var(--grn);
+}
+
 .pills {
   display: flex;
   flex-wrap: wrap;
@@ -621,6 +657,70 @@ body.ch #cr {
 @media (max-width: 900px) {
   .h-av {
     display: none;
+  }
+
+  /* ── Mobile hero layout ── */
+  #hero {
+    padding: 100px 22px 60px;
+    align-items: flex-start;
+  }
+
+  .hl {
+    text-align: left;
+    width: 100%;
+  }
+
+  /* Name row: heading + mini pfp side by side */
+  .h-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .h-name-row .h-name {
+    flex: 1;
+  }
+
+  /* Mobile pfp — hexagon design matching desktop */
+  .h-pfp-mobile {
+    display: flex !important;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .h-pfp-mob-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Tighten orbit rings to fit the smaller container */
+  .h-pfp-mob-wrap .av-r {
+    inset: -14px;
+  }
+
+  .h-pfp-mob-wrap .av-r2 {
+    inset: -24px;
+  }
+
+  /* Scale the hexagon frame */
+  .h-pfp-mob-wrap .av-hex {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    z-index: 1;
+  }
+
+  .h-cta {
+    justify-content: flex-start;
+  }
+
+  .pills {
+    justify-content: flex-start;
   }
 }
 
