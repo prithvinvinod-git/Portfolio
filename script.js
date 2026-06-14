@@ -269,13 +269,13 @@
 
         <div class="rpn">${r.name}</div>
 
-        <div class="rpd">${(r.description || "No description").slice(0, 80)}${(r.description || "").length > 80 ? "â€¦" : ""}</div>
+        <div class="rpd">${(r.description || "No description").slice(0, 80)}${(r.description || "").length > 80 ? " €¦" : ""}</div>
 
         <div class="rpm">
 
-          ${r.language ? `<span style="color:${LC[r.language] || "#888"}">â— ${r.language}</span>` : ""}
+          ${r.language ? `<span style="color:${LC[r.language] || "#888"}">  ${r.language}</span>` : ""}
 
-          <span>â˜… ${r.stargazers_count}</span>
+          <span>★ ${r.stargazers_count}</span>
 
         </div>
 
@@ -295,7 +295,7 @@
           })
           .catch(() => {
             document.getElementById("gh-sk").innerHTML =
-              `<p style="font-family:var(--fm);font-size:.8rem;color:var(--dim)">GitHub stats unavailable (rate limited). <a href="https://github.com/prithvinvinod-git" target="_blank" style="color:var(--a)">View on GitHub â†’</a></p>`;
+              `<p style="font-family:var(--fm);font-size:.8rem;color:var(--dim)">GitHub stats unavailable (rate limited). <a href="https://github.com/prithvinvinod-git" target="_blank" style="color:var(--a)">View on GitHub  †’</a></p>`;
           });
       })();
 
