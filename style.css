@@ -769,14 +769,14 @@ body.ch #cr {
   height: 200px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .h-av {
     display: none;
   }
 
-  /* ── Mobile hero layout ── */
+  /* ── Responsive hero layout ── */
   #hero {
-    padding: 100px 22px 60px;
+    padding: 100px 36px 60px;
     align-items: flex-start;
   }
 
@@ -785,12 +785,12 @@ body.ch #cr {
     width: 100%;
   }
 
-  /* Name row: heading + mini pfp side by side */
+  /* Name row: heading + pfp side by side on the right */
   .h-name-row {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 14px;
+    gap: 20px;
     width: 100%;
   }
 
@@ -798,7 +798,7 @@ body.ch #cr {
     flex: 1;
   }
 
-  /* Mobile pfp — hexagon design matching desktop */
+  /* Inline pfp — right-aligned beside the name */
   .h-pfp-mobile {
     display: flex !important;
     flex-shrink: 0;
@@ -807,26 +807,25 @@ body.ch #cr {
     margin-top: 4px;
   }
 
+  /* Larger pfp for tablet range, smaller for phone */
   .h-pfp-mob-wrap {
     position: relative;
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
   }
 
-  /* Tighten orbit rings to fit the smaller container */
   .h-pfp-mob-wrap .av-r {
-    inset: -14px;
+    inset: -16px;
   }
 
   .h-pfp-mob-wrap .av-r2 {
-    inset: -24px;
+    inset: -28px;
   }
 
-  /* Scale the hexagon frame */
   .h-pfp-mob-wrap .av-hex {
     position: relative;
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
     z-index: 1;
   }
 
@@ -836,6 +835,31 @@ body.ch #cr {
 
   .pills {
     justify-content: flex-start;
+  }
+}
+
+/* Compact pfp for small phones */
+@media (max-width: 520px) {
+  #hero {
+    padding: 100px 22px 60px;
+  }
+
+  .h-pfp-mob-wrap {
+    width: 100px;
+    height: 100px;
+  }
+
+  .h-pfp-mob-wrap .av-r {
+    inset: -12px;
+  }
+
+  .h-pfp-mob-wrap .av-r2 {
+    inset: -20px;
+  }
+
+  .h-pfp-mob-wrap .av-hex {
+    width: 100px;
+    height: 100px;
   }
 }
 

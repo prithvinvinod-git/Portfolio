@@ -491,7 +491,9 @@
       (() => {
         const canvas = document.getElementById("c-gh");
 
-        if (!canvas || !window.THREE || mobile()) return;
+        if (!canvas || !window.THREE) return;
+
+        let paused = mobile();
 
         let ready = false,
           group = null;
@@ -612,6 +614,7 @@
 
           (function animate() {
             requestAnimationFrame(animate);
+            if (paused) return;
 
             t += 0.003;
 
@@ -623,11 +626,12 @@
           window.addEventListener(
             "resize",
             dbc(() => {
-              renderer.setSize(W(), H());
-
-              camera.aspect = W() / H();
-
-              camera.updateProjectionMatrix();
+              paused = mobile();
+              if (!paused) {
+                renderer.setSize(W(), H());
+                camera.aspect = W() / H();
+                camera.updateProjectionMatrix();
+              }
             }, 200),
           );
         }
@@ -648,7 +652,9 @@
       (() => {
         const canvas = document.getElementById("c-lp");
 
-        if (!canvas || !window.THREE || mobile()) return;
+        if (!canvas || !window.THREE) return;
+
+        let paused = mobile();
 
         let ready = false,
           group = null,
@@ -740,7 +746,7 @@
 
               const maxDim = Math.max(size.x, size.y, size.z);
 
-              const targetSize = 3.6;
+              const targetSize = 3.24;
               const s = targetSize / maxDim;
 
               model.scale.setScalar(s);
@@ -849,6 +855,7 @@
 
           (function animate() {
             requestAnimationFrame(animate);
+            if (paused) return;
 
             ft += 0.009;
 
@@ -856,7 +863,7 @@
 
             if (mixer) mixer.update(delta);
 
-            if (!rm && group) group.position.y = Math.sin(ft) * 0.12 - 0.2;
+            if (!rm && group) group.position.y = Math.sin(ft) * 0.12 - 0.55;
             if (group && Math.abs(group.position.x) < 4)
               group.rotation.y += 0.003;
 
@@ -866,11 +873,12 @@
           window.addEventListener(
             "resize",
             dbc(() => {
-              renderer.setSize(W(), H());
-
-              camera.aspect = W() / H();
-
-              camera.updateProjectionMatrix();
+              paused = mobile();
+              if (!paused) {
+                renderer.setSize(W(), H());
+                camera.aspect = W() / H();
+                camera.updateProjectionMatrix();
+              }
             }, 200),
           );
         }
@@ -891,7 +899,9 @@
       (() => {
         const canvas = document.getElementById("c-esp");
 
-        if (!canvas || !window.THREE || mobile()) return;
+        if (!canvas || !window.THREE) return;
+
+        let paused = mobile();
 
         let ready = false,
           group = null,
@@ -1086,6 +1096,7 @@
 
           (function animate() {
             requestAnimationFrame(animate);
+            if (paused) return;
 
             ft += 0.008;
 
@@ -1104,11 +1115,12 @@
           window.addEventListener(
             "resize",
             dbc(() => {
-              renderer.setSize(W(), H());
-
-              camera.aspect = W() / H();
-
-              camera.updateProjectionMatrix();
+              paused = mobile();
+              if (!paused) {
+                renderer.setSize(W(), H());
+                camera.aspect = W() / H();
+                camera.updateProjectionMatrix();
+              }
             }, 200),
           );
         }
