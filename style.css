@@ -301,10 +301,19 @@ body.ch #cr {
 
   .hbg {
     display: flex;
+    order: 3;
+    margin-left: 10px;
+    flex-shrink: 0;
   }
 
   #nav {
     padding: 0 22px;
+  }
+
+  /* Pills: pushed right via auto left margin, ordered before hamburger */
+  #nav .sp {
+    order: 2;
+    margin-left: auto;
   }
 
   .drw {
@@ -398,10 +407,23 @@ body.ch #cr {
   animation: sp-pop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Hide on very small screens to avoid crowding the hamburger */
-@media (max-width: 420px) {
+/* On mobile: compact pills sit between logo and hamburger */
+@media (max-width: 768px) {
   .sp {
-    display: none;
+    margin-left: auto;
+    margin-right: 10px;
+    gap: 5px;
+  }
+
+  .sp-pill {
+    padding: 3px 8px;
+    font-size: 0.6rem;
+    gap: 4px;
+  }
+
+  .sp-pill svg {
+    width: 10px;
+    height: 10px;
   }
 }
 
