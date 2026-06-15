@@ -15,7 +15,7 @@ SECTION 1 — PERSONAL DETAILS
 ─────────────────────────────────────────────────────────────
 Full Name        : Prithvin Vinod
 Job Title/Role   : Software Engineer
-Phone            : [8891235540]
+Phone            : []
 Email            : prithvinvinodwork@gmail.com
 Location         : Kerala, India  | 670671
 Date of Birth    : [07/12/2007]

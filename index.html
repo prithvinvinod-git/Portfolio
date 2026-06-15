@@ -14,7 +14,31 @@
 
     <meta name="theme-color" content="#0C0C0C" />
 
-    <link rel="icon" href="assets/logo-portfolio.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/logo-portfolio.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/logo-portfolio.png" />
+    <link rel="apple-touch-icon" href="assets/logo-portfolio.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prithvin.vercel.app/" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prithvin.vercel.app/" />
+    <meta property="og:title" content="Prithvin Vinod – Software Engineer & ESP32 Enthusiast" />
+    <meta property="og:description" content="Prithvin Vinod, Web Dev & ESP32 enthusiast from Kerala, India. CS student skilled in JavaScript, Python, React.js, and Embedded Systems." />
+    <meta property="og:image" content="https://prithvin.vercel.app/assets/logo-portfolio.png" />
+    <meta property="og:image:alt" content="Prithvin Vinod – Portfolio" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Prithvin Vinod Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://prithvin.vercel.app/" />
+    <meta name="twitter:title" content="Prithvin Vinod – Software Engineer & ESP32 Enthusiast" />
+    <meta name="twitter:description" content="Prithvin Vinod, Web Dev & ESP32 enthusiast from Kerala, India. CS student skilled in JavaScript, Python, React.js, and Embedded Systems." />
+    <meta name="twitter:image" content="https://prithvin.vercel.app/assets/logo-portfolio.png" />
+    <meta name="twitter:image:alt" content="Prithvin Vinod – Portfolio" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -65,6 +89,18 @@
       <button class="hbg" id="hbg" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+
+      <!-- Stats pills -->
+      <div class="sp" id="sp" aria-label="Site stats">
+        <div class="sp-pill" id="sp-views" title="Visitors">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span id="sp-vc">—</span>
+        </div>
+        <button class="sp-pill sp-like" id="sp-like" aria-label="Like this portfolio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="sp-hsvg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span id="sp-lc">—</span>
+        </button>
+      </div>
     </header>
 
     <div class="drw" id="drw">
@@ -127,7 +163,7 @@
         </p>
 
         <div class="h-cta rv">
-          <a href="#proj" class="btn-a">View Projects</a>
+          <a href="#proj" class="btn-a" aria-label="View My Projects section">View My Projects</a>
 
           <a href="assets/prithvin-cv.pdf" download="prithvin-cv" class="btn-c">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -474,7 +510,7 @@
         </a>
 
         <a
-          href="https://linkedin.com/in/prithvinvinod"
+          href="https://www.linkedin.com/in/prithvinvinod"
           target="_blank"
           rel="noopener"
           class="cc li rv"
@@ -545,6 +581,12 @@
       </svg>
     </button>
 
+    <!-- Floating like button (bottom-left) -->
+    <button id="fl-like" class="fl-like" aria-label="Like this portfolio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="fl-hsvg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span class="fl-label">Like</span>
+    </button>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -554,6 +596,91 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script src="script.js"></script>
+
+    <!-- Firebase Realtime Database (compat CDN — no bundler needed) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+    <script>
+      /* ── Stats Pills — Firebase Realtime Database ── */
+      (function () {
+        const firebaseConfig = {
+          apiKey:            "AIzaSyBd7zxaG9Rk0ESjILbWFn67dEZJLmAlLfA",
+          authDomain:        "prithvin-portfolio.firebaseapp.com",
+          databaseURL:       "https://prithvin-portfolio-default-rtdb.firebaseio.com",
+          projectId:         "prithvin-portfolio",
+          storageBucket:     "prithvin-portfolio.firebasestorage.app",
+          messagingSenderId: "603578382346",
+          appId:             "1:603578382346:web:b79c6afd04c272fbd0c7f3"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        /* Elements — nav pill */
+        const vcEl     = document.getElementById('sp-vc');
+        const lcEl     = document.getElementById('sp-lc');
+        const likeBtn  = document.getElementById('sp-like');
+        const heartSvg = document.getElementById('sp-hsvg');
+
+        /* Elements — floating pill */
+        const flLike   = document.getElementById('fl-like');
+        const flHsvg   = document.getElementById('fl-hsvg');
+
+        function fmt(n) {
+          if (n == null || isNaN(n)) return '0';
+          if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
+          return String(n);
+        }
+
+        /* ── Views: atomic increment + live listener ── */
+        const viewsRef = db.ref('stats/views');
+        viewsRef.transaction(function (current) {
+          return (current || 0) + 1;
+        });
+        viewsRef.on('value', function (snap) {
+          vcEl.textContent = fmt(snap.val());
+        });
+
+        /* ── Likes: live listener — updates BOTH pills ── */
+        const likesRef = db.ref('stats/likes');
+        likesRef.on('value', function (snap) {
+          var c = fmt(snap.val() || 0);
+          lcEl.textContent = c;
+        });
+
+        /* ── Shared liked state ── */
+        const LIKED_KEY = 'pv-liked';
+
+        function setLiked() {
+          likeBtn.classList.add('liked');
+          flLike.classList.add('liked');
+          heartSvg.setAttribute('fill', 'currentColor');
+          flHsvg.setAttribute('fill', 'currentColor');
+        }
+
+        if (localStorage.getItem(LIKED_KEY)) { setLiked(); }
+
+        /* ── Shared like handler — both buttons call this ── */
+        function handleLike() {
+          if (likeBtn.classList.contains('liked')) return;
+          setLiked();
+          likeBtn.classList.add('pop');
+          flLike.classList.add('pop');
+          localStorage.setItem(LIKED_KEY, '1');
+          setTimeout(function () {
+            likeBtn.classList.remove('pop');
+            flLike.classList.remove('pop');
+          }, 400);
+          likesRef.transaction(function (current) {
+            return (current || 0) + 1;
+          });
+        }
+
+        likeBtn.addEventListener('click', handleLike);
+        flLike.addEventListener('click', handleLike);
+      })();
+    </script>
   </body>
 </html>
 
