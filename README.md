@@ -3,7 +3,7 @@
 A modern, interactive portfolio website showcasing software engineering projects, technical experience, and embedded systems expertise with ESP32 projects.
 
 
-Visit the portfolio: [prithvin.dev](https://prithvin.dev)
+Visit the portfolio: [Prithvin.vercel.app](https://prithvin.vercel.app)
 
 ## ✨ Features
 
@@ -28,7 +28,7 @@ Visit the portfolio: [prithvin.dev](https://prithvin.dev)
 **Frontend:**
 - HTML5
 - CSS3 (custom styling)
-- JavaScript (Vanilla)
+- JavaScript
 - GSAP - Animation library
 - Three.js - 3D model rendering
 
