@@ -938,6 +938,49 @@ body.ch #cr {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: filter 0.05s;
+}
+
+/* ── PFP Glitch ── */
+.av-in img.glitching {
+  animation: pfp-glitch 0.55s steps(1) forwards;
+}
+
+@keyframes pfp-glitch {
+  0%   { filter: none; transform: translate(0,0); }
+  10%  { filter: drop-shadow(-4px 0 0 rgba(255,0,80,0.85)) drop-shadow(4px 0 0 rgba(0,220,255,0.85)); transform: translate(-3px, 1px); }
+  20%  { filter: none; transform: translate(2px,-1px); }
+  30%  { filter: drop-shadow(3px 0 0 rgba(255,0,80,0.9)) drop-shadow(-3px 0 0 rgba(0,220,255,0.9)); transform: translate(-2px, 2px); }
+  40%  { filter: brightness(2.5) saturate(0); transform: translate(0, -2px); }
+  50%  { filter: drop-shadow(-5px 0 0 rgba(255,0,80,0.7)) drop-shadow(5px 0 0 rgba(0,220,255,0.7)); transform: translate(4px, 0); }
+  60%  { filter: none; transform: translate(-1px, 1px); }
+  70%  { filter: drop-shadow(2px 0 0 rgba(255,200,0,0.8)); transform: translate(2px,-2px); }
+  80%  { filter: brightness(0.2); transform: translate(-3px,0); }
+  90%  { filter: drop-shadow(-3px 0 0 rgba(255,0,80,0.6)) drop-shadow(3px 0 0 rgba(0,220,255,0.6)); transform: translate(1px,1px); }
+  100% { filter: none; transform: translate(0,0); }
+}
+
+/* Scanline overlay flicker */
+.av-hex.glitch-hex::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.18) 0px,
+    rgba(0,0,0,0.18) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  animation: scan-flicker 0.55s steps(1) forwards;
+  z-index: 5;
+}
+
+@keyframes scan-flicker {
+  0%,100% { opacity: 0; }
+  15%,45%,75% { opacity: 1; }
+  30%,60%,90% { opacity: 0; }
 }
 
 .av-fb {
@@ -1677,4 +1720,96 @@ footer a {
     padding: 7px 13px;
     font-size: 0.68rem;
   }
+}
+
+/* ═══════════════════════════════════════
+   Easter Egg Button & Fade Mode
+═══════════════════════════════════════ */
+
+#ee-btn {
+  position: fixed;
+  top: 70px;          /* just below the 60px nav */
+  right: 20px;
+  z-index: 900;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(232,160,32,0.22);
+  background: rgba(12,12,12,0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  font-family: var(--fm);
+  font-size: 0.6rem;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s,
+    color 0.25s,
+    background 0.25s,
+    box-shadow 0.25s;
+
+  user-select: none;
+}
+
+#ee-btn:hover {
+  border-color: rgba(232,160,32,0.55);
+  color: var(--a);
+  box-shadow: 0 0 14px rgba(232,160,32,0.16);
+}
+
+#ee-btn.active {
+  border-color: var(--a);
+  color: var(--a);
+  background: rgba(232,160,32,0.08);
+  box-shadow: 0 0 22px rgba(232,160,32,0.28);
+}
+
+#ee-btn .ee-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dim);
+  flex-shrink: 0;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+
+#ee-btn.active .ee-dot {
+  background: var(--a);
+  box-shadow: 0 0 8px var(--a);
+  animation: ee-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes ee-pulse {
+  0%,100% { box-shadow: 0 0 6px var(--a); }
+  50%      { box-shadow: 0 0 18px var(--a); }
+}
+
+/* ── Per-element glitch-fade (easter egg scroll mode) ── */
+.ee-vanish {
+  animation: ee-glitch-fade 0.8s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  pointer-events: none !important;
+  position: relative;
+}
+
+.ee-gone {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+@keyframes ee-glitch-fade {
+  0%   { filter: none;                                                                                     transform: translate(0,0);    opacity: 1;    }
+  12%  { filter: drop-shadow(-3px 0 0 rgba(255,0,80,.85)) drop-shadow(3px 0 0 rgba(0,220,255,.85));       transform: translate(-2px,1px);  opacity: 0.94; }
+  25%  { filter: none;                                                                                     transform: translate(2px,-1px);  opacity: 0.82; }
+  38%  { filter: drop-shadow(4px 0 0 rgba(255,0,80,.9)) drop-shadow(-4px 0 0 rgba(0,220,255,.9));         transform: translate(-3px,2px);  opacity: 0.62; }
+  50%  { filter: brightness(2.4) saturate(0);                                                             transform: translate(0,-2px);    opacity: 0.42; }
+  62%  { filter: drop-shadow(-2px 0 0 rgba(255,0,80,.7)) drop-shadow(2px 0 0 rgba(255,200,0,.6));         transform: translate(3px,0);     opacity: 0.22; }
+  78%  { filter: drop-shadow(2px 0 0 rgba(0,220,255,.55));                                                transform: translate(-1px,1px);  opacity: 0.09; }
+  100% { filter: none;                                                                                     transform: translate(0,0);       opacity: 0;    }
 }

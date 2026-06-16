@@ -1137,3 +1137,145 @@
 
         obs.observe(document.getElementById("esp32"));
       })();
+
+      /* ═══════════════════════════════════════════
+         Easter Egg 1 — PFP Hex Click → Glitch
+      ═══════════════════════════════════════════ */
+      (() => {
+        // Target both the desktop .h-av hex and the mobile pfp hex
+        const hexes = document.querySelectorAll(".av-hex");
+
+        hexes.forEach((hex) => {
+          const img = hex.querySelector("img");
+          if (!img) return;
+
+          // Make the hex feel clickable
+          hex.style.cursor = "pointer";
+
+          hex.addEventListener("click", () => {
+            if (img.classList.contains("glitching")) return; // already running
+
+            // Kick off glitch on the image
+            img.classList.add("glitching");
+            // Kick off scanline overlay on the hex wrapper
+            hex.classList.add("glitch-hex");
+
+            // Clean up after animation ends (~550 ms)
+            const cleanup = () => {
+              img.classList.remove("glitching");
+              hex.classList.remove("glitch-hex");
+              img.removeEventListener("animationend", cleanup);
+            };
+            img.addEventListener("animationend", cleanup);
+
+            // Fallback safety timeout
+            setTimeout(cleanup, 700);
+          });
+        });
+      })();
+
+      /* ═══════════════════════════════════════════
+         Easter Egg 2 — Scroll → Random Glitch Fade
+      ═══════════════════════════════════════════ */
+      (() => {
+        const btn   = document.getElementById("ee-btn");
+        const label = document.getElementById("ee-label");
+        if (!btn) return;
+
+        /* ── Element pool: leaf-level content nodes only ── */
+        const POOL_SEL = [
+          ".pill", ".ti", ".card", ".ghc", ".lb",
+          ".cc", ".h-bio", ".h-over", ".h-tag",
+          ".s-num", ".clk", ".btn-a", ".btn-b", ".btn-c",
+          ".rp", ".stg", ".c-n", ".c-d", ".c-badge",
+          ".ti-role", ".ti-desc", ".ghn", ".ghl", ".lbh"
+        ].join(",");
+
+        let active       = false;
+        let scrollTimer  = null;
+        let lastY        = 0;
+        const affected   = new Set();   // elements that have been glitched
+
+        /* ── Pick random visible, un-glitched elements ── */
+        function pickTargets() {
+          const all = [...document.querySelectorAll(POOL_SEL)];
+          const visible = all.filter(el => {
+            if (el.classList.contains("ee-gone") ||
+                el.classList.contains("ee-vanish")) return false;
+            const r = el.getBoundingClientRect();
+            return r.top < window.innerHeight && r.bottom > 0 && r.width > 0;
+          });
+          if (!visible.length) return [];
+
+          // Shuffle & take 1-3
+          for (let i = visible.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [visible[i], visible[j]] = [visible[j], visible[i]];
+          }
+          return visible.slice(0, Math.floor(Math.random() * 3) + 1);
+        }
+
+        /* ── Glitch-then-fade one element ── */
+        function vanish(el) {
+          if (!el || el.classList.contains("ee-gone") ||
+                     el.classList.contains("ee-vanish")) return;
+          affected.add(el);
+          el.classList.add("ee-vanish");
+
+          const done = () => {
+            el.removeEventListener("animationend", done);
+            el.classList.remove("ee-vanish");
+            el.classList.add("ee-gone");
+          };
+          el.addEventListener("animationend", done);
+          // Safety fallback
+          setTimeout(done, 900);
+        }
+
+        /* ── Throttled scroll handler ── */
+        function onScroll() {
+          if (!active) return;
+          const dy = Math.abs(window.scrollY - lastY);
+          lastY = window.scrollY;
+          if (dy < 8) return;   // ignore micro-nudges
+
+          clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => {
+            pickTargets().forEach(vanish);
+          }, 200);
+        }
+
+        /* ── Activate ── */
+        function activate() {
+          active = true;
+          btn.classList.add("active");
+          label.textContent = "✕ restore";
+          lastY = window.scrollY;
+          window.addEventListener("scroll", onScroll, { passive: true });
+          // Glitch a couple of elements immediately so the user notices right away
+          setTimeout(() => pickTargets().forEach(vanish), 280);
+        }
+
+        /* ── Deactivate: restore all faded elements ── */
+        function deactivate() {
+          active = false;
+          btn.classList.remove("active");
+          label.textContent = "easter egg";
+          window.removeEventListener("scroll", onScroll);
+          clearTimeout(scrollTimer);
+
+          affected.forEach(el => {
+            el.classList.remove("ee-gone", "ee-vanish");
+            // Briefly apply a transition so the restore isn't a hard pop
+            el.style.transition = "opacity 0.5s ease";
+            el.style.opacity    = "";           // clear inline; CSS takes over
+            setTimeout(() => { el.style.transition = ""; }, 550);
+          });
+          affected.clear();
+        }
+
+        btn.addEventListener("click", () => {
+          if (active) deactivate();
+          else        activate();
+        });
+      })();
